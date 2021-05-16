@@ -4,10 +4,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t MatheusMorozetti/ezops-test-matheus-morozetti -f Dockerfile.dev .
+  - docker build -t Matheus-Morozetti/ezops-test-matheus-morozetti -f Dockerfile.dev .
 
 script:
-  - docker run MatheusMorozetti/ezops-test-matheus-morozetti npm run test
+  - docker run Matheus-Morozetti/ezops-test-matheus-morozetti npm run test
 
 deploy:
   provider: elasticbeanstalk
