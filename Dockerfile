@@ -1,10 +1,11 @@
 FROM node:alpine as builder
-WORKDIR '/app'
+WORKDIR '/usr/src/app'
 COPY package*.json ./
+RUN npm set strict-ssl false
 RUN npm install
-COPY . .
-RUN npm run build
+COPY ./src .
+RUN node ./server.js
 
 FROM nginx
 EXPOSE 80
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /src /usr/share/nginx/html
