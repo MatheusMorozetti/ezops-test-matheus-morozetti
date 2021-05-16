@@ -1,13 +1,15 @@
 FROM node:alpine as builder
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR '/src'
+
 COPY package*.json ./
 RUN npm set strict-ssl false
 RUN npm install
-COPY ./src .
+
+
+COPY . ..
 RUN node ./server.js
 
 EXPOSE 8080
 
-CMD [ "node", "server.js"]
+CMD ["node", "server.js"]

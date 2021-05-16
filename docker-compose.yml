@@ -3,10 +3,9 @@ services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports: 
       - "3001:3001"
     volumes:
-      -/node_modules
-      - /usr/src/app:/usr/src/app
+      - .:/src
     command: ["node", "server.js"]
