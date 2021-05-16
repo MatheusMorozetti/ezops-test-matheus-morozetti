@@ -12,4 +12,4 @@ RUN node ./server.js
 
 EXPOSE 8080
 
-CMD ["node", "server.js"]
+CMD ["nodemon", "server.js"]
