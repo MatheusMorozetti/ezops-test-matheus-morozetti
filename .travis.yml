@@ -4,20 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t Matheus-Morozetti/ezops-test-matheus-morozetti -f Dockerfile.dev .
+  - docker build . -t Matheus-Morozetti/ezops-test-matheus-morozetti -f Dockerfile.dev .
 
 script:
-  - docker run Matheus-Morozetti/ezops-test-matheus-morozetti npm run test
-
-deploy:
-  provider: elasticbeanstalk
-  region: "us-west-2"
-  app: "docker"
-  env: "Docker-env"
-  bucket_name: "elasticbeanstalk-us-west-2-306476627547"
-  bucket_path: "docker"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"
+  - docker run Matheus-Morozetti/ezops-test-matheus-morozetti
