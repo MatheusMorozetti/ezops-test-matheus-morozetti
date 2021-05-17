@@ -8,6 +8,9 @@ RUN npm install
 
 
 COPY . .
-RUN npx nodemon /ezops-test-matheus-morozetti/src/server.js
+RUN npm install -g pm2 
+RUN pm2 start src/server.js
+
+
 
 EXPOSE 80
