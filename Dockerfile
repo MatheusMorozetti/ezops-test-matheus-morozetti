@@ -10,6 +10,6 @@ RUN npm install
 COPY . ..
 RUN node ./server.js
 
-EXPOSE 8080
-
-CMD ["nodemon", "server.js"]
+FROM nginx
+EXPOSE 80
+COPY --from=0 /app/build /usr/share/nginx/html
