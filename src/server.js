@@ -4,8 +4,8 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const mongoose = require('mongoose');
-const PORT = 3001;
-const HOST = '172.19.48.157';
+
+
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
@@ -47,6 +47,6 @@ mongoose.connect,(err) => {
   console.log('mongodb connected',err);
 }
 
-
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+const server = http.listen(3000, () => {
+  console.log('server is running on port', server.address().port);
+});

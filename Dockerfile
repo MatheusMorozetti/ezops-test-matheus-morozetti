@@ -7,9 +7,7 @@ RUN npm set strict-ssl false
 RUN npm install
 
 
-COPY . ..
-RUN node ./server.js
+COPY . .
+RUN npx nodemon /ezops-test-matheus-morozetti/src/server.js
 
-EXPOSE 8080
-
-CMD ["nodemon", "server.js"]
+EXPOSE 80
