@@ -8,3 +8,16 @@ before_install:
 
 script:
   - docker run matheusmorozetti/ezops-test-matheus-morozetti
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "ezops-test"
+  env: "Ezopstest-env"
+  bucket_name: elasticbeanstalk-us-east-2-275810144275
+  bucket_path: "ezops-test"
+  on:
+   branch: master
+  acces_key_id: $AWS_ACCES_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
